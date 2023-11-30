@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" type="text/css" href="costumes_style.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Boo-tique</title>
+</head>
+<body>
+
+    <header>
+        <h1><a href="index.html">Boo-tique</h1>
+            <img id= "pumpkinleft" src="img/pumpkin.png">
+            <img id= "pumpkinmiddle" src="img/pumpkin.png">
+            <img id= "pumpkinright" src="img/pumpkin.png">
+    </header>
+
+        <!--Navigation Bar-->  
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="updates.html">Updates</a>
+            <a href="halloweencostumes.html">Halloween Costumes</a>
+            <a href="product.html">Product</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="cart.html">Your Cart</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+
+
+        <!--Heading of Webpage -->  
+        <h1> SHOP </h1>
+        <p class="intro">Let's start looking for your spook-tacular costume! </p>
+
+        <!--Fitler Buttons -->
+        <h2 class="filterTitle">FILTERS</h2>
+
+
+        <div class="filterItems">
+             <button class="btn1" onclick="filterItems('all')"> Show All</button>
+             <button class="btn2" onclick="filterItems('mens')"> Mens</button>
+             <button class="btn3" onclick="filterItems('womens')"> Womens</button>
+        </div>
+
+        <div class="filterOptions">
+          <div class="filterDiv mens">
+              <img id= "spiderman" src="img/spiderman.png" width="200" height="200">
+              <h2 class="spiderText">Spiderman</h2>
+              <h1>//Out of Stock//</h1>
+          </div>
+
+          <div class="filterDiv mens">
+
+            <img id= "aquaman" src="img/aquaman.png" width="200" height="200">
+            <h2>Aquaman</h2>
+            <h1>//Out of Stock//</h1>
+        </div>
+        <div class="filterDiv mens">
+            
+            <img id= "harrypotter" src="img/harrypotter.png" width="200" height="200">
+            <h2>Harry Potter</h2>
+            <h1>//Out of Stock//</h1>
+        </div>
+        <div class="filterDiv womens">
+           
+           <img id= "witch" src="img/witch.png" width="200" height="200">
+           <h2>Witch</h2>
+           <h1>//Out of Stock//</h1>
+       </div>
+        <div class="filterDiv womens">
+           
+           <a href="product.html">
+            <img src="img/worm.png" alt="HTML tutorial" width="200" height="200">
+            </a>
+            <h2>Worm</h2>
+            <h1>$499.99</h1>
+       </div>
+        <div class="filterDiv womens">
+           
+           <img id= "snowwhite" src="img/snowwhite.png" width="200" height="200">
+           <h2>Snow White</h2>
+           <h1>//Out of Stock//</h1>
+       </div>
+   </div>
+        </div>
+
+       
+    <script>
+    // variables  
+        var all = document.querySelector(".btn1");
+        var men = document.querySelector(".btn2");
+        var women = document.querySelector(".btn3");
+
+    // event listeners 
+        all.addEventListener("click", function() { filterItems('all'); });
+        men.addEventListener("click", function() { filterItems('mens'); });
+        women.addEventListener("click", function() { filterItems('womens'); });
+
+    // function for filters
+        function filterItems(category) {
+            var items = document.querySelectorAll('.filterDiv');
+
+            if (category === 'all') {
+                items.forEach(function(item) {
+                    item.style.display = 'block';
+                });
+            } else {
+                items.forEach(function(item) {
+                    if (item.classList.contains(category)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        }
+    </script>
+
+
+    <footer>
+        &copy; 2023 Boo-tique. All rights reserved.
+    </footer>
+</body>
+</html>

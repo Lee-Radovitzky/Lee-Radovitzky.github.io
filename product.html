@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+	<title>Boo-tique Costumes</title>
+	<link rel="stylesheet" type="text/css" href="pp_style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boo-tique</title>
+</head>
+<body>
+
+	<header>
+
+		<div id="cartname">
+			<img class="cartsymbol" src="img/shoppingcart.png">
+			<p id="carttotal">0</p>
+		</div>
+		<h1><a href="index.html" class="header-title">Boo-tique</a></h1>
+		<img id="pumpkinleft" src="img/pumpkin.png">
+		<img id="pumpkinmiddle" src="img/pumpkin.png">
+		<img id="pumpkinright" src="img/pumpkin.png">
+
+	</header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="updates.html">Updates</a>
+        <a href="halloweencostumes.html">Halloween Costumes</a>
+        <a href="product.html">Product</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="cart.html">Your Cart</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+	<!-- FIRST SECTION: INFORMATION -->
+
+	<div class="product-container">
+		
+
+		<!-- IMAGE SIDE -->
+		<div class="image-container">
+			<img src="img/klum_worm_1.jpg" alt="Image 1" id="worm1" class="main-product-image">
+			<div class="thumbnail-container">
+				<img src="img/klum_worm_2.jpg" alt="Thumbnail 1" id="worm2" class="thumbnail-image">
+				<img src="img/klum_worm_3.jpg" alt="Thumbnail 2" id="worm3" class="thumbnail-image">
+			</div>
+		</div>
+
+		<!-- INFO SIDE -->
+		<div class="info-section">
+			
+			<div class="product-title">
+				<h1 class="product-title" id="product-name">BEAUTIFUL WORM</h1>
+				
+				<div class="rating-and-reviews">
+					<div class="rating-container">
+						<span class="rating-number">4.0</span>
+						<div class="ratings">
+							<span class="star">★</span>
+							<span class="star">★</span>
+							<span class="star">★</span>
+							<span class="star">★</span>
+						</div>
+						<a href="#reviews" class="see-reviews">SEE REVIEWS</a>
+					</div>
+					<span class="review-count">124 reviews</span>
+				</div>
+			</div>
+
+			<!-- Product price -->
+			<div class="product-price" id="costume-price">
+				<span>$499.99</span>
+			</div>
+
+			<!-- Size options -->
+			<div class="size-options">
+				<div class="size-label">
+					<span id="chosen_size">Size: XL</span>
+				</div>
+				<div class="sizes">
+					<button type="button" id="size-xs" class="size-button" onclick="updateSize(this, 'XS')">XS</button>
+					<button type="button" id="size-s" class="size-button" onclick="updateSize(this, 'S')">S</button>
+					<button type="button" id="size-m" class="size-button" onclick="updateSize(this, 'M')">M</button>
+					<button type="button" id="size-l" class="size-button" onclick="updateSize(this, 'L')">L</button>
+					<button type="button" id="size-xl" class="size-button" onclick="updateSize(this, 'XL')">XL</button>
+				</div>
+			</div>
+
+			<!-- Add to cart button -->
+			<div class="add-to-cart">
+				<button type="button" id="addtocart">ADD TO CART</button>
+			</div>
+
+			<!-- Dropdown for additional information -->
+			<div class="dropdown">
+				<details class="drop-item">
+					<summary>Costume Description</summary>
+					<p>Embrace the bizarre in this exquisite, full-body worm costume, where grotesque meets glamour. Its surreal elegance and textured sheen promise to be the centerpiece of any Halloween festivity.</p>
+				</details>
+				<details class="drop-item">
+					<summary>What's Included</summary>
+					<p>10 ft long Worm body suit, face mask, air pump to fill worm to desired fullness</p>
+				</details>
+				<details class="drop-item">
+					<summary>Materials</summary>
+					<p>High density foam, polyester, silicone, mesh, glaze for extra shine</p>
+				</details>
+			</div>
+		</div>
+	</div>
+
+	<!-- ACCESSORIES SECTION -->
+	<div class="acc_section">
+		<h1>COMPLETE THE LOOK</h1>
+		<div class="acc_items_container">
+			<div class="acc_item">
+				<img src="img/acc_1.jpg" alt="Accessory 1" width="150" height="150">
+				<p>SWORD</p>
+			</div>
+			<div class="acc_item">
+				<img src="img/acc_2.jpg" alt="Accessory 2" width="150" height="150">
+				<p>GOGGLES</p>
+			</div>
+			<div class="acc_item">
+				<img src="img/acc_3.jpg" alt="Accessory 3" width="150" height="150">
+				<p>TOP HAT</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- RELATED SECTION -->
+	<div class="rel_section">
+		<h1>OTHER COSTUMES YOU MIGHT LIKE</h1>
+		<div class="rel_items_container">
+			<div class="rel_item">
+				<img src="img/cost_1.jpg" alt="Costume 1">
+				<p>ANT</p>
+			</div>
+			<div class="rel_item">
+				<img src="img/cost_2.jpg" alt="Costume 2">
+				<p>FLY</p>
+			</div>
+			<div class="rel_item">
+				<img src="img/cost_3.jpg" alt="Costume 3">
+				<p>LADYBUG</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- REVIEWS SECTION -->
+	
+	<div class="rev_section" id="reviews">
+		<div class="review_header">
+			<h1>Reviews</h1>
+			<button type="button">Write a Review</button>
+		</div>
+		<div class="review_count">
+			<p>124 Reviews</p>
+		</div>
+		<div class="review">
+			<img src="img/profile_img.jpg" alt="Profile Image" class="profile-img">
+			<div class="review-content">
+				<p class="reviewer-name">Linda B. <span class="review-stars">★★★★★</span></p>
+				<div class="review-date">11/15/2023</div>
+				<p class="review-text">I love worm so much</p>
+				<p>So happy to be worm now. Big, big, big worm. Everyone knows now that I am worm and very excited for me to be worm finally.</p>
+			</div>
+		</div>
+		<div class="review">
+			<img src="img/profile_img.jpg" alt="Profile Image" class="profile-img">
+			<div class="review-content">
+				<p class="reviewer-name">Aaron N. <span class="review-stars">★★★★★</span></p>
+				<div class="review-date">11/02/2023</div>
+				<p class="review-text">I've never felt more beautiful!</p>
+				<p>What a beautiful addition to my bug costume collection. I feel like Heidi Klum! This pairs nicely with the wings from my Jeff Goldblum The Fly costume. </p>
+			</div>
+		</div>
+		<div class="review">
+			<img src="img/profile_img.jpg" alt="Profile Image" class="profile-img">
+			<div class="review-content">
+				<p class="reviewer-name">Alice Z. <span class="review-stars">★★★</span></p>
+				<div class="review-date">11/15/2023</div>
+				<p class="review-text">Good quality but too scary</p>
+				<p>I thought this would be fun. The costume is such good quality it is very realistic but now my children won’t talk to me. My partner has taken them to stay with his parents for a while. I fear I wormed too close to the sun. </p>
+			</div>
+		</div>
+		<div class="see_more">
+			<span>See more reviews ></span>
+		</div>
+	</div>
+
+	<footer>
+        &copy; 2023 Boo-tique. All rights reserved.
+    </footer>
+
+	<script type="text/javascript">
+
+	// VARIABLES FOR MAIN IMAGE AND THUMBNAILS
+var mainImage = document.querySelector('.main-product-image'); 
+var thumbnails = document.querySelectorAll(".thumbnail-image"); 
+
+// EVENT LISTENERS FOR THUMBNAILS
+thumbnails[0].addEventListener("click", swapImages);
+thumbnails[1].addEventListener("click", swapImages);
+
+// FUNCTION: SWAP IMAGES
+function swapImages() {
+	var tempSrc = mainImage.src;
+	mainImage.src = this.src;
+	this.src = tempSrc;
+}
+
+// FUNCTION: UPDATING SELECTED SIZE
+function updateSize(button, size) {
+	toggleSize(button);
+	var chosen = document.querySelector('#chosen_size')
+	chosen.textContent = 'Size: ' + size;
+}
+
+// FUNCTION: CHANGING COLOUR OF SELECTED SIZE
+function toggleSize(button) {
+
+	var sizeButtons = document.querySelectorAll('.size-button');
+
+	sizeButtons.forEach(function(btn) {
+		btn.classList.remove('selected-size');
+	});
+
+	button.classList.add('selected-size');
+}
+
+
+// CREATING THE COOKIES!!!!!!!!
+
+
+// FUNCTION: ADDING THE RELEVANT INFO TO THE COOKIE
+function addToCart() {
+ 
+    var productName = document.getElementById("product-name").textContent;
+    var productImage = document.getElementById("worm1").src; 
+    var productPrice = document.getElementById("costume-price").textContent;
+    var chosenSize = document.getElementById("chosen_size").textContent;
+
+    // MAKING JSON LIST
+    var productDetails = {
+        name: productName,
+        image: productImage,
+        price: productPrice,
+        size: chosenSize
+    };
+
+    // CALLING FUNCTION
+    var cart = getCart();
+
+    // ADDING NEW VALUES TO THE COOKIE
+    cart.push(productDetails);
+
+    // CALLING FUNCTION
+    setCart(cart);
+
+    // LOGGING TO THE CONSOLE TO CHECK 
+    console.log(cart);
+}
+
+// GETTING EXISTING CART COOKIE
+function getCart() {
+    var cartCookie = getCookie('cart');
+    return cartCookie ? JSON.parse(cartCookie) : [];
+}
+
+function setCart(cart) {
+    var cartString = JSON.stringify(cart);
+    setCookie('cart', cartString, 7); // Set cookie for 7 days
+}
+
+// SETTING THE COOKIE
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+// GET THE COOKIE
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// EVENT LISTENER TO TRIGGER ADD TO CART FUNCTION
+document.getElementById("addtocart").addEventListener("click", addToCart);
+
+</script>
+
+</body>
+</html>

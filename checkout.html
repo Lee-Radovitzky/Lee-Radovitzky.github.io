@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="checkout_style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cookieFunctions.js"></script>
+    <title>Boo-tique</title>
+</head>
+<body>
+
+    <header>
+      
+                <div id="cartname">
+                    <img class="cartsymbol" src="img/shoppingcart.png">
+                    <p id="carttotal">0</p>
+                </div>
+        <h1><a href="index.html">Boo-tique</a></h1>
+        <img id="pumpkinleft" src="img/pumpkin.png">
+        <img id="pumpkinmiddle" src="img/pumpkin.png">
+        <img id="pumpkinright" src="img/pumpkin.png">
+
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="updates.html">Updates</a>
+        <a href="halloweencostumes.html">Halloween Costumes</a>
+        <a href="product.html">Product</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="cart.html">Your Cart</a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+ <input type="button" value="Add to Cart!" id="addtocart">
+    <hr>
+
+    <div id="securecheckout">
+        <img class="lock" src="img/lock.png">
+        <p>Secure Checkout</p>
+    </div>
+
+    <div class="columns-container">
+
+
+        <!-- LEFT COLUMN -->
+
+        <div class="leftcolumn">
+
+            <!--Shipping Information--->
+            <div class="boxheader">
+                <p>SHIPPING INFORMATION</p>
+            </div>
+            <div class="boxbody">
+                <p id="info">Shipping:</p>
+                <div class="checkout-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required>
+                        </div> <br>
+
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <input type="text" id="address" name="address" required>
+                        </div><br>
+                    </form>
+                </div>
+            </div>
+
+            <!--Shipping Method--->
+            <div class="boxheader">
+                <p>SHIPPING METHOD</p>
+            </div>
+            <div class="boxbody">
+                <form onsubmit="return validateForm()">
+                    <p><label>
+                            <input type="radio" name="shipping" value="ground" id="groundship"> Ground (3-5 days)
+                        </label></p>
+
+                    <p><label>
+                            <input type="radio" name="shipping" value="express"> Express (2-3 days)
+                        </label></p>
+
+                    <p><label>
+                            <input type="radio" name="shipping" value="nextday"> Next Day (1 day)
+                        </label></p>
+                </form>
+            </div>
+
+            <!--Payment--->
+            <div class="boxheader">
+                <p>PAYMENT</p>
+            </div>
+            <div class="boxbody">
+                <p>Enter payment information:</p>
+                <div class="checkout-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nameoncard">Name on card:</label>
+                            <input type="text" id="cardName" name="cardName" pattern="[A-Za-z ]+" required>
+                        </div> <br>
+
+                        <div class="form-group">
+                            <label for="address">Credit Card Number:</label>
+                            <input type="text" id="creditcard" name="creditcard" required>
+                        </div><br>
+
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry date:</label>
+                            <input type="text" id="expiryDate" name="expiryDate" required>
+                        </div> <br>
+
+                        <div class="form-group">
+                            <label for="cvc">CVC:</label>
+                            <input type="text" id="cvc" name="cvc" required>
+                        </div> <br>
+                        <button class="styled-button" onclick="completePurchase()">Complete Payment</button><br><br>
+
+                        <p id="purchasepending">Purchase Pending...</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="rightcolumn">
+            <div class="boxheader">
+                <p>ORDER SUMMARY</p>
+            </div>
+            <div class="boxbody">
+                <img class="worm" src="img/klum_worm_1.jpg">
+                <p>Beautiful worm costume</p>
+                <p>QTY: 1</p>
+                <p>Item Subtotal: $499.99</p>
+                <p id="estimatedshipping">Estimated Shipping: $13.49</p>
+                <p>Tax: $64.99</p>
+                <hr>
+                <p>Order Total: $578.47</p>
+                <button onclick="window.location.href='cart.html'">Back to Cart</button><br><br>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Boo-tique. All rights reserved.
+    </footer>
+
+    <script>
+
+
+        //Variables
+        var info = document.querySelector("#info");
+        var purchasePending = document.querySelector("#purchasepending");
+        var cardNameInput = document.querySelector("#cardName");
+        var nameInput = document.querySelector("#name");
+        var addressInput = document.querySelector("#address");
+        var shippingInputs = document.querySelectorAll("input[name='shipping']");
+        var creditcardInput = document.querySelector("#creditcard");
+        var expiryDateInput = document.querySelector("#expiryDate");
+        var cvcInput = document.querySelector("#cvc");
+        var groundShip = document.querySelector("#groundship");
+        var estimatedShipping = document.querySelector("#estimatedshipping");
+        var cartTotalDisplay = document.querySelector("#carttotal");
+        var cartTotal = 0;
+        var addToCartButton = document.querySelector("#addtocart");
+        var savedCartTotal = getCookie("cartTotal");
+        var cookieValue = getCookie("example");
+
+        // Event Listeners
+        info.addEventListener("mouseover", onHover);
+        info.addEventListener("mouseout", mouseOut);
+        addToCartButton.addEventListener("click", addToCart);
+
+
+        // Functions
+        function onHover() {
+            if (this.id == "info") {
+                info.textContent = "Enter your shipping information:";
+            }
+        }
+
+        function mouseOut() {
+            if (this.id == "info") {
+                info.textContent = "Shipping:";
+            }
+        }
+
+        function addToCart() {
+            if (addToCartButton.id === "addtocart") {
+                cartTotal += 1;
+                cartTotalDisplay.textContent = cartTotal;
+                setCookie("cartTotal", cartTotal, 7);
+                console.log("Cart total set to:", cartTotal);
+            }
+        }
+
+
+        function validateForm() {
+            if (!nameInput.checkValidity() || !addressInput.checkValidity() || !isShippingSelected() ||
+                !cardNameInput.checkValidity() || !creditcardInput.checkValidity() ||
+                !expiryDateInput.checkValidity() || !cvcInput.checkValidity()) {
+                alert("Please fill out all required fields with valid information.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function isShippingSelected() {
+            for (var i = 0; i < shippingInputs.length; i++) {
+                if (shippingInputs[i].checked) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function completePurchase() {
+            if (validateForm()) {
+                purchasePending.textContent = "Purchase completed!";
+                alert("Purchase completed! Thank you for shopping with Boo-tique!");
+            }
+        }
+
+
+         function getCartFromCookie() {
+                        savedCartTotal = getCookie("cartTotal");
+
+                        if (savedCartTotal !== null) {
+                        cartTotal = parseInt(savedCartTotal);
+                        cartTotalDisplay.textContent = cartTotal;
+                    }
+                }
+
+                function getCartFromCookie() {
+                    savedCartTotal = getCookie("cartTotal");
+
+                if (savedCartTotal !== null) {
+                    cartTotal = parseInt(savedCartTotal);
+                    cartTotalDisplay.textContent = cartTotal;
+                    }
+                }
+
+                getCartFromCookie();
+        </script>
+    </body>
+</html>
